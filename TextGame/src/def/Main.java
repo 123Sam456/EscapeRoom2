@@ -1,14 +1,18 @@
 package def;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
-	
+	private static final Logger Log = LogManager.getLogger(Main.class.getName());
+
 	public static void main(String[] args) {
 		int i = 2;
 		i = GetUserInput();
 		
 		System.out.println(i);
+
 
 	}
 	
