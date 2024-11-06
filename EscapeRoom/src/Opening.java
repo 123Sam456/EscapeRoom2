@@ -21,12 +21,11 @@ public class Opening {
                 // Get user input and trim any surrounding spaces.
                 playerName = scanner.nextLine().trim(); 
                 
-                // If playerName is empty, prompt for input again.
+                // If playerName is empty, display message.
                 if(playerName.isEmpty()) {
                     System.out.println("Please enter your name to start the game.");
                 }
-                // If playerName contains anything other than letters (and optionally spaces),
-                // prompt for valid input.
+                // If playerName contains anything other than letters, display message. 
                 else if(!playerName.matches("[A-Za-z ]+")) {
                     System.out.println("Name should only contain letters and spaces. Please try again.");
                 }
@@ -41,11 +40,11 @@ public class Opening {
             }
         }
         
-        // Close the scanner after input validation.
+        // Close the scanner. 
         scanner.close();
     }
 
-    // Main method to start the game
+    // Example, can delete. 
     public static void main(String[] args) {
         usernameValidation(); 
     }
