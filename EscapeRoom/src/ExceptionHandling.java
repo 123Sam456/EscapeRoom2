@@ -7,6 +7,8 @@ public class ExceptionHandling {
 		
 		Scanner scanner = new Scanner(System.in);
 		
+		
+		
 		int inputChoice = 0; 
 		
 		boolean validInput = true; 
@@ -22,7 +24,7 @@ public class ExceptionHandling {
                     throw new IllegalArgumentException("Invalid choice! Please choose 1, 2, or 3.");
                 }
                 
-                validInput = false; 
+                validInput = false;  
 			}
 			catch(Exception e) {
 				
@@ -34,5 +36,4 @@ public class ExceptionHandling {
 		scanner.close();
 
 	}
-
 }
