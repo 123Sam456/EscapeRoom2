@@ -3,10 +3,10 @@ package def;
 import java.util.Scanner;
 
 interface IRoomInfo {
-	void Message();
-	void Choices();
-	void ChoiceMessage(int choice);
-	void Outcome(int choice);
+	public void Message();
+	public void Choices();
+	public void ChoiceMessage(int choice);
+	public void Outcome(int choice);
 
 
 // variable names
@@ -17,48 +17,11 @@ IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
 IRoomInfo courtYard = new CourtYard();
 
-//5 options on default
-	public static int GetUserInput() {
-		return GetUserInput(6);
-	}
-	
-	// gets user number in the range of 1 to selectedRange 
-	public static int GetUserInput(int selectRange){
-		boolean condition = true;
-		int input = -1;
-		while (condition) {
-		try (Scanner myObj = new Scanner(System.in)) {
-			String UserInput = myObj.nextLine();  // Read user input
-			try {
-				input = Integer.parseInt(UserInput);
-				if(input < selectRange && input >= 1) {
-					condition = false;	
-				}
-				else {
-					System.out.println("you inputed an invalid number ");
-				}
-				} catch (NumberFormatException e) {
-			    	System.out.println("Invalid number format: " + e.getMessage());
-				}
-			}
-		}
-		return input;
-	}
-
-public static void main(String args[]) {
-	// IRoomInfo room = new Room1();
-	// room.Message();
-	// room.Choices();
-	// room.ChoiceMessage(1);
-	// room.Outcome(1);
-	courtYard.Message();
-}
-
 // room 1 room code
-public class Room1 implements IRoomInfo{
+class Room1 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
-		System.out.println("Welcome Message for room1");
+		System.out.println("Welcome Message for room 1");
 		Choices();
 	}
 	
@@ -70,8 +33,9 @@ public class Room1 implements IRoomInfo{
 		System.out.println("4. Hint Book");
 		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
-		int answer = GetUserInput();
+		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
+
 	}
 	
 	// Message plays after the user selects a choice
@@ -105,7 +69,7 @@ public class Room1 implements IRoomInfo{
 		// Filler
 		else if (choice == 2 || choice == 3) {
 			System.out.println("1. Nice");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -114,7 +78,7 @@ public class Room1 implements IRoomInfo{
 		else if (choice == 4) {
 		System.out.println(hints[0]);
 			System.out.println("1. Nice");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -123,10 +87,10 @@ public class Room1 implements IRoomInfo{
 }
 
 //room 2 room code
-public class Room2 implements IRoomInfo{
+class Room2 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
-		System.out.println("Welcome Message for room1");
+		System.out.println("Welcome Message for room 2");
 		Choices();
 	}
 	
@@ -138,7 +102,7 @@ public class Room2 implements IRoomInfo{
 		System.out.println("4. Hint Book");
 		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
-		int answer = GetUserInput();
+		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
 	}
 	
@@ -173,7 +137,7 @@ public class Room2 implements IRoomInfo{
 		// Filler
 		else if (choice == 2 || choice == 3) {
 			System.out.println("1. Nice");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -182,7 +146,7 @@ public class Room2 implements IRoomInfo{
 		else if (choice == 4) {
 		System.out.println(hints[1]);
 			System.out.println("1. Thank you for the hint!");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -191,7 +155,7 @@ public class Room2 implements IRoomInfo{
 }
 
 //room 3 room code
-public class Room3 implements IRoomInfo{
+class Room3 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 3");
@@ -206,7 +170,7 @@ public class Room3 implements IRoomInfo{
 		System.out.println("4. Hint Book");
 		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
-		int answer = GetUserInput();
+		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
 	}
 	
@@ -236,14 +200,14 @@ public class Room3 implements IRoomInfo{
 		
 		// open chest
 		if (choice == 1) {
-			Keys.Room1Key = true;
+			Keys.Room3Key = true;
 			Choices();
 		}
-		// Filler
+		// Filler Dialoge
 		else if (choice == 2) {
 			System.out.println("1. Yes");
 			System.out.println("2. No");
-			if(GetUserInput(2) == 1) {
+			if(Main.GetUserInput(2) == 1) {
 				room4.Message();
 			}
 			else {
@@ -252,7 +216,7 @@ public class Room3 implements IRoomInfo{
 		}
 		else if (choice == 3) {
 			System.out.println("1. Nice");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -261,7 +225,7 @@ public class Room3 implements IRoomInfo{
 		else if (choice == 4) {
 			System.out.println(hints[2]);
 			System.out.println("1. Thank you for the hint");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -270,7 +234,7 @@ public class Room3 implements IRoomInfo{
 }
 
 //room 4 room code
-public class Room4 implements IRoomInfo{
+class Room4 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 4");
@@ -285,7 +249,7 @@ public class Room4 implements IRoomInfo{
 		System.out.println("4. Hint Book");
 		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
-		int answer = GetUserInput();
+		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
 	}
 	
@@ -320,7 +284,7 @@ public class Room4 implements IRoomInfo{
 		// Filler
 		else if (choice == 2 || choice == 3) {
 			System.out.println("1. Nice");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -329,7 +293,7 @@ public class Room4 implements IRoomInfo{
 		else if (choice == 4) {
 		System.out.println(hints[3]);
 			System.out.println("1. thank you for the hint");
-			int answer = GetUserInput(1);
+			int answer = Main.GetUserInput(1);
 			if(answer == 1) {
 				Choices();
 			}
@@ -348,8 +312,8 @@ public class Room4 implements IRoomInfo{
 			System.out.println("2. room 2");
 			System.out.println("3. room 3");
 			System.out.println("4. go outside");
-			int answer = GetUserInput(5);
-			ChoiceMessage(answer);
+			//int answer = 
+			ChoiceMessage(Main.GetUserInput(4));
 		}
 		// Message after you choice your option
 		public void ChoiceMessage(int choice) {
@@ -376,9 +340,10 @@ public class Room4 implements IRoomInfo{
 					if(choice == 4) {
 						if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
 							// Go outside
+							System.out.println("You Win!!!!!!");
 						}
 						else {
-							System.out.println("You ");
+							System.out.println("Dont have all the keys try and find them all");
 							Choices();
 							// you don't have enough keys
 						}
