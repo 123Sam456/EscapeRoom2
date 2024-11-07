@@ -15,7 +15,7 @@ IRoomInfo room1 = new Room1();
 IRoomInfo room2 = new Room2();
 IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
-IRoomInfo courtYard = new courtYard();
+//IRoomInfo courtYard = new courtYard();
 
 // room 1 room code
 class Room1 implements IRoomInfo{
@@ -56,7 +56,7 @@ class Room1 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-			courtYard.Message();
+//			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -85,6 +85,11 @@ class Room1 implements IRoomInfo{
 		}
 	}
 }
+
+//Courtyard room code
+//class courtYard implements IRoomInfo {
+//	
+//}
 
 //room 2 room code
 class Room2 implements IRoomInfo{
@@ -124,7 +129,7 @@ class Room2 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-			courtYard.Message();
+//			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -193,7 +198,7 @@ class Room3 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-			courtYard.Message();
+//			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -271,7 +276,7 @@ class Room4 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-			courtYard.Message();
+//			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
