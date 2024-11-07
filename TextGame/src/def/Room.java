@@ -312,27 +312,26 @@ class Room4 implements IRoomInfo{
 			System.out.println("2. room 2");
 			System.out.println("3. room 3");
 			System.out.println("4. go outside");
-			//int answer = 
 			ChoiceMessage(Main.GetUserInput(4));
 		}
 		// Message after you choice your option
 		public void ChoiceMessage(int choice) {
 			// found and picked up key
-						if(choice == 1) {
-							room1.Message();
-						}
-						// found and didn't pick up key
-						else if(choice == 2) {
-							room2.Message();
-						}
-						// tunnel go in yes
-						else if(choice == 3) {
-							room3.Message();
-						}
-						// tunnel go in no
-						else if(choice == 4) {
-							Outcome(4);
-						}
+			if(choice == 1) {
+				room1.Message();
+			}
+			// found and didn't pick up key
+			else if(choice == 2) {
+				room2.Message();
+			}
+			// tunnel go in yes
+			else if(choice == 3) {
+				room3.Message();
+			}
+			// tunnel go in no
+			else if(choice == 4) {
+				Outcome(4);
+			}
 		}
 		// Message after the outcome
 				public void Outcome(int choice) {
