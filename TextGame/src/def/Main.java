@@ -2,14 +2,21 @@ package def;
 
 import java.util.Scanner;
 
-public class Main {
-	
-	public static void main(String[] args) {
-		int i = 2;
-		i = GetUserInput();
-		
-		System.out.println(i);
+import def.IRoomInfo.CourtYard;;
 
+public class Main {
+	public static void main(String[] args) {
+		
+		
+		Main m = new Main();
+		m.checkRoom(new CourtYard());
+		
+		//CourtYard roomClass = new CourtYard();
+		//roomClass.Message();
+	}
+	
+	public void checkRoom(IRoomInfo room) {
+		room.Message();
 	}
 	
 	// 5 options on default
@@ -19,27 +26,57 @@ public class Main {
 	
 	// gets user number in the range of 1 to selectedRange 
 	public static int GetUserInput(int selectRange){
-		boolean condition = true;
-		int input = -1;
-		while (condition) {
-		try (Scanner myObj = new Scanner(System.in)) {
-			String UserInput = myObj.nextLine();  // Read user input
-			try {
-				input = Integer.parseInt(UserInput);
-				if(input < selectRange && input >= 1) {
-					System.out.println("correct input");
-					condition = false;	
+		Scanner myObj = new Scanner(System.in);
+			// Read user input
+			int input = -1;
+			while (true) {
+				String a = myObj.nextLine();
+				// Checks if the user inputed a number
+				if(isInteger(a)) {
+				input = Integer.parseInt(a);
+					// checks if the users input is with in the parameters
+					// if yes break the while loop and return the user input
+					if(input <= selectRange && input >= 1) {
+						break;
+					}
+					else {
+						// gets the users next input and checks if it is good
+						System.out.println("You didn't input a number in the range you were given");
+						continue;
+					}
 				}
 				else {
-					System.out.println("you inputed an invalid number ");
-				}
-				} catch (NumberFormatException e) {
-			    	System.out.println("Invalid number format: " + e.getMessage());
+					// If the user didn't input a number
+					System.out.println("You didn't input a number");
+					continue;
 				}
 			}
+			return input;
 		}
-		return input;
-	}
 	
-
+	
+	public static boolean isInteger(String str) {
+	    if (str == null) {
+	        return false;
+	    }
+	    int length = str.length();
+	    if (length == 0) {
+	        return false;
+	    }
+	    int i = 0;
+	    if (str.charAt(0) == '-') {
+	        if (length == 1) {
+	            return false;
+	        }
+	        i = 1;
+	    }
+	    for (; i < length; i++) {
+	        char c = str.charAt(i);
+	        if (c < '0' || c > '9') {
+	            return false;
+	        }
+	    }
+	    return true;
+	}
 }
+
