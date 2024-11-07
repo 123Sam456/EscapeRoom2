@@ -13,7 +13,7 @@ IRoomInfo room1 = new Room1();
 IRoomInfo room2 = new Room2();
 IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
-IRoomInfo courtYard = new CourtYard();
+IRoomInfo courtYard = new courtYard();
 
 public static void main(String args[]) {
 	IRoomInfo room = new Room1();
