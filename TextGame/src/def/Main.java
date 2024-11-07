@@ -1,24 +1,19 @@
 package def;
 
 import java.util.Scanner;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import def.IRoomInfo.CourtYard;;
 
 public class Main {
-	private static final Logger Log = LogManager.getLogger(Main.class.getName());
-
 	public static void main(String[] args) {
-		int i = 2;
-		i = GetUserInput();
 		
-		System.out.println(i);
-
-
+		CourtYard roomClass = new CourtYard();
+		roomClass.Message();
 	}
 	
 	// 5 options on default
 	public static int GetUserInput() {
-		return GetUserInput(5);
+		return GetUserInput(6);
 	}
 	
 	// gets user number in the range of 1 to selectedRange 
@@ -31,7 +26,6 @@ public class Main {
 			try {
 				input = Integer.parseInt(UserInput);
 				if(input < selectRange && input >= 1) {
-					System.out.println("correct input");
 					condition = false;	
 				}
 				else {

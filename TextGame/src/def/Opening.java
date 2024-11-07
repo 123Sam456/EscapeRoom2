@@ -1,4 +1,4 @@
-
+package def;
 import java.util.Scanner;
 
 public class Opening {
