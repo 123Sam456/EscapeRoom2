@@ -45,11 +45,11 @@ public class Opening {
         System.out.println(dialogue.opening);
         
         // Close the scanner. 
-        scanner.close();
+        //scanner.close();
     }
 
     // Example, can delete. 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
         usernameValidation(); 
     }
 }
