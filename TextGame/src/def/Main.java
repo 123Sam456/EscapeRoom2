@@ -14,8 +14,10 @@ public class Main {
 		Opening opening = new Opening();
 		opening.usernameValidation();
 		
-		CourtYard roomClass = new CourtYard();
-		roomClass.Message();
+		
+		Main m = new Main();
+		m.checkRoom(new CourtYard());
+		
 	}
 	
 	public void checkRoom(IRoomInfo room) {

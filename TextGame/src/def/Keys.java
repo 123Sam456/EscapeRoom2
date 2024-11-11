@@ -9,7 +9,7 @@ public class Keys {
 	public static boolean Room4Key;
 
 	// Treemap to store
-	static TreeMap<String, Boolean> hintCount = new TreeMap<>();
+	public static TreeMap<String, Boolean> hintCount = new TreeMap<>();
 
 	// Set all the hints to false at the beginning of the game.
 	static {
@@ -19,3 +19,4 @@ public class Keys {
 		hintCount.put("Hint 4", false);
 	}
 }
+
