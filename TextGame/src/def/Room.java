@@ -341,7 +341,7 @@ public class CourtYard implements IRoomInfo{
 			if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
 				// Go outside
 				Closing close = new Closing();
-				close.EndGame();
+				close.EndGame();1
 			}
 			else {
 				System.out.println("Dont have all the keys try and find them all");
