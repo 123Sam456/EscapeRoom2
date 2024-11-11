@@ -1,7 +1,5 @@
 package def;
 
-import java.util.Scanner;
-
 interface IRoomInfo {
 	public void Message();
 	public void Choices();
@@ -15,10 +13,13 @@ IRoomInfo room1 = new Room1();
 IRoomInfo room2 = new Room2();
 IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
-//IRoomInfo courtYard = new courtYard();
+IRoomInfo courtYard = new CourtYard();
 
+public class start implements IRoomInfo{
+	
+}
 // room 1 room code
-class Room1 implements IRoomInfo{
+public class Room1 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 1");
@@ -56,7 +57,7 @@ class Room1 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-//			courtYard.Message();
+			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -86,13 +87,8 @@ class Room1 implements IRoomInfo{
 	}
 }
 
-//Courtyard room code
-//class courtYard implements IRoomInfo {
-//	
-//}
-
 //room 2 room code
-class Room2 implements IRoomInfo{
+public class Room2 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 2");
@@ -129,7 +125,7 @@ class Room2 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-//			courtYard.Message();
+			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -160,7 +156,7 @@ class Room2 implements IRoomInfo{
 }
 
 //room 3 room code
-class Room3 implements IRoomInfo{
+public class Room3 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 3");
@@ -198,7 +194,7 @@ class Room3 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-//			courtYard.Message();
+			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -239,7 +235,7 @@ class Room3 implements IRoomInfo{
 }
 
 //room 4 room code
-class Room4 implements IRoomInfo{
+public class Room4 implements IRoomInfo{
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 4");
@@ -276,7 +272,7 @@ class Room4 implements IRoomInfo{
 		}
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
-//			courtYard.Message();
+			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
@@ -306,56 +302,54 @@ class Room4 implements IRoomInfo{
 	}
 }
 	
-	public class CourtYard implements IRoomInfo{
-		public void Message() {
-			System.out.println("This is the welcome message to court yard");
-			Choices();
-		}
-		// shows your options
-		public void Choices() {
-			System.out.println("1. room 1");
-			System.out.println("2. room 2");
-			System.out.println("3. room 3");
-			System.out.println("4. go outside");
-			ChoiceMessage(Main.GetUserInput(4));
-		}
-		// Message after you choice your option
-		public void ChoiceMessage(int choice) {
-			// found and picked up key
-			if(choice == 1) {
-				room1.Message();
-			}
-			// found and didn't pick up key
-			else if(choice == 2) {
-				room2.Message();
-			}
-			// tunnel go in yes
-			else if(choice == 3) {
-				room3.Message();
-			}
-			// tunnel go in no
-			else if(choice == 4) {
-				Outcome(4);
-			}
-		}
-		// Message after the outcome
-				public void Outcome(int choice) {
-					// found and picked up key
-					if(choice == 4) {
-						if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
-							// Go outside
-							Ending ending = new Ending();
-							ending.EndGame();
-						}
-						else {
-							System.out.println("Dont have all the keys try and find them all");
-							Choices();
-							// you don't have enough keys
-						}
-					}
-				}
-		
-		
+public class CourtYard implements IRoomInfo{
+	public void Message() {
+		System.out.println("This is the welcome message to court yard");
+		Choices();
 	}
+	// shows your options
+	public void Choices() {
+		System.out.println("1. room 1");
+		System.out.println("2. room 2");
+		System.out.println("3. room 3");
+		System.out.println("4. go outside");
+		ChoiceMessage(Main.GetUserInput(4));
+	}
+	// Message after you choice your option
+	public void ChoiceMessage(int choice) {
+		// found and picked up key
+		if(choice == 1) {
+			room1.Message();
+		}
+		// found and didn't pick up key
+		else if(choice == 2) {
+			room2.Message();
+		}
+		// tunnel go in yes
+		else if(choice == 3) {
+			room3.Message();
+		}
+		// tunnel go in no
+		else if(choice == 4) {
+			Outcome(4);
+		}
+	}
+	// Message after the outcome
+	public void Outcome(int choice) {
+		// found and picked up key
+		if(choice == 4) {
+			if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
+				// Go outside
+				Closing close = new Closing();
+				close.EndGame();
+			}
+			else {
+				System.out.println("Dont have all the keys try and find them all");
+				Choices();
+				// you don't have enough keys
+			}
+			}
+			}
+		}
 	}
 
