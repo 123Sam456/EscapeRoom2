@@ -8,11 +8,14 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		Main m = new Main();
-		m.checkRoom(new CourtYard());
+		//Main m = new Main();
+		//m.checkRoom(new CourtYard());
+
+		Opening opening = new Opening();
+		opening.usernameValidation();
 		
-		//CourtYard roomClass = new CourtYard();
-		//roomClass.Message();
+		CourtYard roomClass = new CourtYard();
+		roomClass.Message();
 	}
 	
 	public void checkRoom(IRoomInfo room) {

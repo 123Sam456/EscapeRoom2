@@ -5,7 +5,9 @@ public class Opening {
     
     // Method to validate username input
     public static void usernameValidation() {
-        Scanner scanner = new Scanner(System.in); 
+        Scanner scanner = new Scanner(System.in);
+
+        Dialogue dialogue = new Dialogue();
         
         // Variable to hold player name.
         String playerName;
@@ -14,8 +16,8 @@ public class Opening {
         boolean validInput = false; 
         while(!validInput) {
             try {
-                System.out.println("Welcome to our Text-based game.");
-                System.out.println("Explain how to play "); 
+                //System.out.println("Welcome to our Text-based game.");
+                System.out.println(dialogue.title);
                 System.out.println("Your name: ");
                 
                 // Get user input and trim any surrounding spaces.
@@ -39,14 +41,10 @@ public class Opening {
                 System.out.println("An error occurred: " + e.getMessage());
             }
         }
-        
-        // Close the scanner. 
-        scanner.close();
+
+        System.out.println(dialogue.opening);
+
     }
 
-    // Example, can delete. 
-    public static void main(String[] args) {
-        usernameValidation(); 
-    }
 }
 

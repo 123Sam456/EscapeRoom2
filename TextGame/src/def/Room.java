@@ -408,7 +408,8 @@ class Room4 implements IRoomInfo{
 					if(choice == 4) {
 						if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
 							// Go outside
-							System.out.println("You Win!!!!!!");
+							Ending ending = new Ending();
+							ending.EndGame();
 						}
 						else {
 							System.out.println("Dont have all the keys try and find them all");
