@@ -19,7 +19,8 @@ public class Dialogue {
 	String r1_5 = ("Go to the door"); // if 1 has been selected already.
 	String r1_5a = ("You approach the door. You notice a keyhole at the door. You attempt to open the door, and it won’t budge."); // doesn't have a key
 	String r1_5b = ("You insert the key into the keyhole. You hear a satisfying click, and the door opens. "); // has a key.
-	String r1_6 = ("Leave the room"); // if 1 has been selected.
+	String r1_6 = ("Leave the room"); // if r1_w4a has been selected.
+	String r1_6a = ("You exit the room...");
 	
 	// wardrobe
 	String r1_w1 = ("Ask the book"); // r1_2 and r1_4 selected already

@@ -26,7 +26,7 @@ public class Main {
 	
 	// 5 options on default
 	public static int GetUserInput() {
-		return GetUserInput(5);
+		return GetUserInput(10);
 	}
 	
 	// gets user number in the range of 1 to selectedRange 

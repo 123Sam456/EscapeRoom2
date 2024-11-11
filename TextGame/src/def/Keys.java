@@ -19,3 +19,4 @@ public class Keys {
 		hintCount.put("Hint 4", false);
 	}
 }
+
