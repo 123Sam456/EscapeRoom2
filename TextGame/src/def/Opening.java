@@ -1,4 +1,5 @@
 package def;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Opening {
@@ -8,7 +9,29 @@ public class Opening {
         Scanner scanner = new Scanner(System.in);
 
         Dialogue dialogue = new Dialogue();
-        
+        LocalTime userTime = LocalTime.now();
+                
+        String timeMessage = "";
+        int hour = userTime.getHour();
+        int min = userTime.getMinute();
+        if((hour <= 5) || (hour == 6 && min == 0)){
+        	timeMessage = "Early Morning";
+        }
+        else if (hour <= 11){
+        	timeMessage = "Morning";
+        }
+        else if (hour <= 12){
+        	timeMessage = "Noon";
+        }
+        else if (hour <= 20){
+        	timeMessage = "Afternoon";
+        }
+        else if (hour <= 23){
+        	timeMessage = "Evening";
+        }
+        System.out.println("It is " + userTime);
+        System.out.println(timeMessage);
+		
         // Variable to hold player name.
         String playerName;
         

@@ -5,57 +5,31 @@ interface IRoomInfo {
 	public void Choices();
 	public void ChoiceMessage(int choice);
 	public void Outcome(int choice);
-	Dialogue dialog = new Dialogue();
-	Keys key = new Keys();
 
 
 // variable names
-public String[] hints = {dialog.r1_w1a, "Hint for room 2", "Hint for room 3", "Hint room 4"};
+public String[] hints = {"Hint room 1", "Hint for room 2", "Hint for room 3", "Hint room 4"};
 IRoomInfo room1 = new Room1();
 IRoomInfo room2 = new Room2();
 IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
 IRoomInfo courtYard = new CourtYard();
 
-
 // room 1 room code
 public class Room1 implements IRoomInfo{
-	// booleans for dialog choices activated by other choices
-	boolean oneSelected = false;
-	boolean fourSelected = false;
-	boolean hasHints = false;
-	
-	// adding in the dialogue class
-
 	// Message to play when the user enters the room
 	public void Message() {
-		System.out.println(dialog.opening);
+		System.out.println("Welcome Message for room 1");
 		Choices();
 	}
 	
 	// Lists out options
 	public void Choices() {
-		System.out.println("1. " + dialog.r1_1);
-		System.out.println("2. " + dialog.r1_2);
-		System.out.println("3. " + dialog.r1_3);
-		if (oneSelected) {
-			System.out.println("4. " + dialog.r1_4);
-			System.out.println("5. " + dialog.r1_5);
-		}
-	// Wardrobe choices
-		if (fourSelected) {
-			System.out.println("6. " + dialog.r1_w1);
-			System.out.println("7. " + dialog.r1_w2);
-			System.out.println("8. " + dialog.r1_w3);
-			System.out.println("9. " + dialog.r1_w4);
-			
-		}
-		if (Keys.Room1Key == true) {
-			System.out.println("10. " + dialog.r1_6);
-		}
-		
-		
-		
+		System.out.println("1. Try and unlock door");
+		System.out.println("2. Option 2");
+		System.out.println("3. Option 3");
+		System.out.println("4. Hint Book");
+		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
 		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
@@ -65,95 +39,50 @@ public class Room1 implements IRoomInfo{
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
 		if(choice == 1) {
-			System.out.println(dialog.r1_1a);
+			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
 		else if (choice == 2) {
-			System.out.println(dialog.r1_2a);
+			System.out.println("ChoiceMessage option 2");
 			Outcome(2);
 		}
 		else if (choice == 3) {
-			System.out.println(dialog.r1_3a);
-			System.out.println(dialog.Ending5);
+			System.out.println("ChoiceMessage option 3");
+			Outcome(3);
 		}
 		else if (choice == 4) {
-			System.out.println(dialog.r1_4a);
-			fourSelected = true;
+			System.out.println("here is the hint book!");
 			Outcome(4);
 		}
 		else if (choice == 5) {
-
-			Outcome(5);
-		}
-		else if (choice == 6) {
-			Outcome(6);
-		}
-		else if (choice == 7) {
-			System.out.println(dialog.r1_w2a);
-			Outcome(7);
-		}
-		else if (choice == 8) {
-			System.out.println(dialog.r1_w3a);
-			Outcome(8);
-		}
-		else if (choice == 9) {
-			System.out.println(dialog.r1_w4a);
-			Outcome(9);
-		}
-		else if (choice == 10) {
-			System.out.println(dialog.r1_6a);
 			System.out.println("Going back to courtyard");
 			courtYard.Message();
 		}
 	}
 	public void Outcome(int choice) {
 		
+		// open chest
 		if (choice == 1) {
-			oneSelected = true;
-			Choices();
-		}
-		// user picks up the book.
-		if (choice == 2) {
-				hasHints = true;
-				Choices();
-		}
-		
-		if (choice == 4) {
-		System.out.println(hints[0]);
-				Choices();
-		}
-		if (choice == 5) {
-			if (Keys.Room1Key == true) {
-				System.out.println(dialog.r1_5b);
-				Choices();
-			}
-			else {
-				System.out.println(dialog.r1_5a);
-				Choices();
-			}
-		}
-		if (choice == 6) {
-			if (hasHints) {
-				System.out.println(dialog.r1_w1a);
-				Choices();
-			}
-			else {
-				System.out.println("You never picked up the book!");
-				Choices();
-			}
-		}
-		if (choice == 7) {
-			Choices();
-		}
-		if (choice == 8) {
-			Choices();
-		}
-		if (choice == 9) {
 			Keys.Room1Key = true;
 			Choices();
-			
+		}
+		// Filler
+		else if (choice == 2 || choice == 3) {
+			System.out.println("1. Nice");
+			int answer = Main.GetUserInput(1);
+			if(answer == 1) {
+				Choices();
+			}
 		}
 		
+		else if (choice == 4) {
+		System.out.println(hints[0]);
+			System.out.println("1. Nice");
+			int answer = Main.GetUserInput(1);
+			if(answer == 1) {
+				Choices();
+			}
+		}
 	}
 }
 
@@ -171,7 +100,7 @@ public class Room2 implements IRoomInfo{
 		System.out.println("2. Option 2");
 		System.out.println("3. Option 3");
 		System.out.println("4. Hint Book");
-		System.out.println("5. Go Back to Courtyard");
+		System.out.println("5. Go Back to Court Yard");
 		// Gets the number the user picked
 		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
@@ -180,14 +109,16 @@ public class Room2 implements IRoomInfo{
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
 		if(choice == 1) {
-			System.out.println("Congrats here is the key!");
+			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
 		else if (choice == 2) {
 			System.out.println("ChoiceMessage option 2");
+			Outcome(2);
 		}
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
+			Outcome(3);
 		}
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
@@ -257,6 +188,7 @@ public class Room3 implements IRoomInfo{
 		}
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
+			Outcome(3);
 		}
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
@@ -274,7 +206,7 @@ public class Room3 implements IRoomInfo{
 			Keys.Room3Key = true;
 			Choices();
 		}
-		// Filler Dialogue
+		// Filler Dialoge
 		else if (choice == 2) {
 			System.out.println("1. Yes");
 			System.out.println("2. No");
@@ -376,8 +308,7 @@ public class CourtYard implements IRoomInfo{
 	public void Message() {
 		System.out.println("This is the welcome message to court yard");
 		Choices();
-	
-}
+	}
 	// shows your options
 	public void Choices() {
 		System.out.println("1. room 1");
@@ -423,3 +354,4 @@ public class CourtYard implements IRoomInfo{
 			}
 		}
 	}
+
