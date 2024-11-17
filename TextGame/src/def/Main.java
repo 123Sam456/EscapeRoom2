@@ -16,7 +16,7 @@ public class Main {
 		
 		
 		Main m = new Main();
-		m.checkRoom(new CourtYard());
+		m.checkRoom(new IRoomInfo.Room1()); //begin user in room 1
 		
 	}
 	
