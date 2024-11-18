@@ -16,7 +16,7 @@ public class Main {
 		
 		
 		Main m = new Main();
-		m.checkRoom(new CourtYard());
+		m.checkRoom(new IRoomInfo.Room1()); //begin user in room 1
 		
 	}
 	
@@ -26,7 +26,7 @@ public class Main {
 	
 	// 5 options on default
 	public static int GetUserInput() {
-		return GetUserInput(10);
+		return GetUserInput(5);
 	}
 	
 	// gets user number in the range of 1 to selectedRange 
@@ -56,6 +56,8 @@ public class Main {
 					continue;
 				}
 			}
+			// Chapter 6.5
+			assert input > 0 : "The user input should be greater than 0";
 			return input;
 		}
 	
