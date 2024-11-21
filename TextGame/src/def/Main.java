@@ -1,38 +1,33 @@
 package def;
-
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
-import def.IRoomInfo.CourtYard;;
 
 public class Main {
 	public static void main(String[] args) {
 		// Create two locales
 		Locale us = new Locale("en", "US");
 		Locale france = new Locale("fr", "FR");
-			
+	
 		printProperties(france);
-				
+		
 		// Tokenization Example
 		// Create Resource Bundle Object
-		ResourceBundle rb = ResourceBundle.getBundle("Zoo", us);
+		ResourceBundle rb = ResourceBundle.getBundle("TextGame", us);
 		String format = rb.getString("hello");
 		System.out.println(format);
-
+		
 		Opening opening = new Opening();
 		opening.usernameValidation();
-		
-		
+
 		Main m = new Main();
 		m.checkRoom(new IRoomInfo.Room1()); //begin user in room 1
 		
 	}
 	
-	// For the Resource Bundle
 	public static void printProperties(Locale locale) {
 		// Create Resource Bundle Object
-		ResourceBundle rb = ResourceBundle.getBundle("Zoo", locale);
+		ResourceBundle rb = ResourceBundle.getBundle("TextGame", locale);
 		
 		System.out.println(rb.getString("hello"));
 		System.out.println(rb.getString("open"));
