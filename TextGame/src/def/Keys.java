@@ -8,6 +8,7 @@ public class Keys {
 	public static boolean Room3Key;
 	public static boolean Room4Key;
 
+	// Chapter 3.3
 	// Treemap to store
 	public static TreeMap<String, Boolean> hintCount = new TreeMap<>();
 

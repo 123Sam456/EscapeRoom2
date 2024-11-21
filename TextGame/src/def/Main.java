@@ -42,6 +42,7 @@ public class Main {
 		return GetUserInput(5);
 	}
 	
+	// Chapter 1.5
 	// gets user number in the range of 1 to selectedRange 
 	public static int GetUserInput(int selectRange){
 		Scanner myObj = new Scanner(System.in);
