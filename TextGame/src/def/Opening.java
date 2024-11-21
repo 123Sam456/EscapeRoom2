@@ -10,6 +10,7 @@ public class Opening {
 
         Dialogue dialogue = new Dialogue();
         
+        // Chapter 5.1
         // Gets the users time
         LocalTime userTime = LocalTime.now();
         
@@ -45,6 +46,7 @@ public class Opening {
         // Loop to validate player name.
         boolean validInput = false; 
         while(!validInput) {
+        	// Chapter 6.1
             try {
                 //System.out.println("Welcome to our Text-based game.");
                 System.out.println(dialogue.title);

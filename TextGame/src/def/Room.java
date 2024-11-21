@@ -1,5 +1,6 @@
 package def;
 
+// Chapter 4.3
 interface IRoomInfo {
 	public void Message();
 	public void Choices();
@@ -17,6 +18,7 @@ IRoomInfo courtYard = new CourtYard();
 
 // room 1 room code
 public class Room1 implements IRoomInfo{
+	
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 1");
@@ -38,18 +40,23 @@ public class Room1 implements IRoomInfo{
 	
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
+		
+		// User unlocks the Key
 		if(choice == 1) {
 			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
+		// User selects dialogue filler choice 2
 		else if (choice == 2) {
 			System.out.println("ChoiceMessage option 2");
 			Outcome(2);
 		}
+		// User selects dialogue filler choice 3
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
 			Outcome(3);
 		}
+		// use hint
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
 			Outcome(4);
@@ -59,6 +66,7 @@ public class Room1 implements IRoomInfo{
 			courtYard.Message();
 		}
 	}
+	// Message after the outcome
 	public void Outcome(int choice) {
 		
 		// open chest
@@ -74,7 +82,7 @@ public class Room1 implements IRoomInfo{
 				Choices();
 			}
 		}
-		
+		// User checks for hint for that room
 		else if (choice == 4) {
 		System.out.println(hints[0]);
 			System.out.println("1. Nice");
@@ -88,6 +96,7 @@ public class Room1 implements IRoomInfo{
 
 //room 2 room code
 public class Room2 implements IRoomInfo{
+	
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 2");
@@ -108,18 +117,24 @@ public class Room2 implements IRoomInfo{
 	
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
+		// User unlocks the Key
 		if(choice == 1) {
 			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
+
+		// User selects dialogue filler choice 2
 		else if (choice == 2) {
 			System.out.println("ChoiceMessage option 2");
 			Outcome(2);
 		}
+		
+		// User selects dialogue filler choice 3
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
 			Outcome(3);
 		}
+		// use hint
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
 			Outcome(4);
@@ -129,6 +144,7 @@ public class Room2 implements IRoomInfo{
 			courtYard.Message();
 		}
 	}
+	// Message after the outcome
 	public void Outcome(int choice) {
 		
 		// open chest
@@ -144,7 +160,7 @@ public class Room2 implements IRoomInfo{
 				Choices();
 			}
 		}
-		
+		// User checks for hint for that room
 		else if (choice == 4) {
 		System.out.println(hints[1]);
 			System.out.println("1. Thank you for the hint!");
@@ -158,6 +174,7 @@ public class Room2 implements IRoomInfo{
 
 //room 3 room code
 public class Room3 implements IRoomInfo{
+	
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 3");
@@ -178,18 +195,22 @@ public class Room3 implements IRoomInfo{
 	
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
+		// User unlocks the Key
 		if(choice == 1) {
 			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
+		// User selects dialogue choice
 		else if (choice == 2) {
 			System.out.println("Do you wanna go into the tunnel?");
 			Outcome(2);
 		}
+		// User selects dialogue filler choice 3
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
 			Outcome(3);
 		}
+		// use hint
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
 			Outcome(4);
@@ -199,6 +220,8 @@ public class Room3 implements IRoomInfo{
 			courtYard.Message();
 		}
 	}
+	
+	// Message after the outcome
 	public void Outcome(int choice) {
 		
 		// open chest
@@ -206,6 +229,7 @@ public class Room3 implements IRoomInfo{
 			Keys.Room3Key = true;
 			Choices();
 		}
+		
 		// Filler Dialoge
 		else if (choice == 2) {
 			System.out.println("1. Yes");
@@ -224,7 +248,7 @@ public class Room3 implements IRoomInfo{
 				Choices();
 			}
 		}
-		
+		// User checks for hint for that room
 		else if (choice == 4) {
 			System.out.println(hints[2]);
 			System.out.println("1. Thank you for the hint");
@@ -238,6 +262,7 @@ public class Room3 implements IRoomInfo{
 
 //room 4 room code
 public class Room4 implements IRoomInfo{
+	
 	// Message to play when the user enters the room
 	public void Message() {
 		System.out.println("Welcome Message for room 4");
@@ -258,25 +283,32 @@ public class Room4 implements IRoomInfo{
 	
 	// Message plays after the user selects a choice
 	public void ChoiceMessage(int choice) {
+		
+		// User unlocks the Key
 		if(choice == 1) {
 			System.out.println("Congrates here is the key!");
 			Outcome(1);
 		}
+		// User selects dialogue filler choice 2
 		else if (choice == 2) {
 			System.out.println("ChoiceMessage option 2");
 		}
+		// User selects dialogue filler choice 3
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
 		}
+		// use hint
 		else if (choice == 4) {
 			System.out.println("here is the hint book!");
 			Outcome(4);
 		}
+		// Go back to the court yard
 		else if (choice == 5) {
 			System.out.println("Going back to courtyard");
 			courtYard.Message();
 		}
 	}
+	// Message after the outcome
 	public void Outcome(int choice) {
 		
 		// open chest
@@ -284,7 +316,7 @@ public class Room4 implements IRoomInfo{
 			Keys.Room4Key = true;
 			Choices();
 		}
-		// Filler
+		// Filler text
 		else if (choice == 2 || choice == 3) {
 			System.out.println("1. Nice");
 			int answer = Main.GetUserInput(1);
@@ -292,7 +324,7 @@ public class Room4 implements IRoomInfo{
 				Choices();
 			}
 		}
-		
+		// User checks for hint for that room
 		else if (choice == 4) {
 		System.out.println(hints[3]);
 			System.out.println("1. thank you for the hint");
@@ -305,6 +337,8 @@ public class Room4 implements IRoomInfo{
 }
 	
 public class CourtYard implements IRoomInfo{
+	
+	// Message to play when the user enters the court yard
 	public void Message() {
 		System.out.println("This is the welcome message to court yard");
 		Choices();
@@ -319,19 +353,19 @@ public class CourtYard implements IRoomInfo{
 	}
 	// Message after you choice your option
 	public void ChoiceMessage(int choice) {
-		// found and picked up key
+		// user goes to room 1
 		if(choice == 1) {
 			room1.Message();
 		}
-		// found and didn't pick up key
+		// user goes to room 2
 		else if(choice == 2) {
 			room2.Message();
 		}
-		// tunnel go in yes
+		// User goes to room 3
 		else if(choice == 3) {
 			room3.Message();
 		}
-		// tunnel go in no
+		// User tries to go outside
 		else if(choice == 4) {
 			Outcome(4);
 		}
@@ -342,8 +376,8 @@ public class CourtYard implements IRoomInfo{
 		if(choice == 4) {
 			if(Keys.Room1Key && Keys.Room2Key && Keys.Room3Key && Keys.Room4Key) {
 				// Go outside
-				Closing close = new Closing();
-				close.EndGame();
+				//Closing close = new Closing();
+				//close.EndGame();
 			}
 			else {
 				System.out.println("Dont have all the keys try and find them all");

@@ -5,6 +5,7 @@ public class Ending {
     // Method to determine ending depending on the hints used.
     public static void EndGame() {
 
+    	// Chapter 3.2
         // Convert treemap to an array to determine if hints have been used or not.
         Boolean[] hintArray = Keys.hintCount.values().toArray(new Boolean[0]);
 
