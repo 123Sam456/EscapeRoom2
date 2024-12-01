@@ -3,49 +3,23 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Opening {
-    
+
+
     // Method to validate username input
     public static void usernameValidation() {
         Scanner scanner = new Scanner(System.in);
-
         Dialogue dialogue = new Dialogue();
-        
-        // Chapter 5.1
-        // Gets the users time
-        LocalTime userTime = LocalTime.now();
-        
-        String timeMessage = "";
-        // Gets the hour and minute of the users time in int variables
-        int hour = userTime.getHour();
-        int min = userTime.getMinute();
-        
-        // To decide what the message will be
-        if((hour <= 5) || (hour == 6 && min == 0)){
-        	timeMessage = "Early Morning";
-        }
-        else if (hour <= 11){
-        	timeMessage = "Morning";
-        }
-        else if (hour <= 12){
-        	timeMessage = "Noon";
-        }
-        else if (hour <= 20){
-        	timeMessage = "Afternoon";
-        }
-        else if (hour <= 23){
-        	timeMessage = "Evening";
-        }
-        
-        // Show users time and message
-        System.out.println("It is " + userTime);
-        System.out.println(timeMessage);
-		
+        //show user greeting based on time.
+
         // Variable to hold player name.
         String playerName;
+
         
         // Loop to validate player name.
         boolean validInput = false; 
+
         while(!validInput) {
+
         	// Chapter 6.1
             try {
                 //System.out.println("Welcome to our Text-based game.");
@@ -77,6 +51,8 @@ public class Opening {
         System.out.println(dialogue.opening);
 
     }
+
+
 
 }
 

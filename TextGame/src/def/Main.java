@@ -9,14 +9,19 @@ public class Main {
 		Locale us = new Locale("en", "US");
 		Locale france = new Locale("fr", "FR");
 	
-		printProperties(france);
+		printProperties(us);
 		
 		// Tokenization Example
 		// Create Resource Bundle Object
 		ResourceBundle rb = ResourceBundle.getBundle("TextGame", us);
 		String format = rb.getString("hello");
 		System.out.println(format);
-		
+
+			//create timeGreeting instance to give the time-based message
+		TimeGreeting timeGreeting = new TimeGreeting();
+			//show the message
+		System.out.println(timeGreeting.toString());
+
 		Opening opening = new Opening();
 		opening.usernameValidation();
 
