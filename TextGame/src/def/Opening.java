@@ -82,7 +82,7 @@ public class Opening {
     Connection DatabaseConnection() throws SQLException {
     	
         EmbeddedDataSource ds = new EmbeddedDataSource();
-        ds.setDatabaseName("TextGameDB" + + Math.random());
+        ds.setDatabaseName("TextGameDB" + Math.random());
         ds.setCreateDatabase("create");
         
         return ds.getConnection();
