@@ -23,7 +23,10 @@ public class Main {
 		System.out.println(timeGreeting.toString());
 
 		Opening opening = new Opening();
-		opening.usernameValidation();
+		opening.usernameValidation(); 
+		
+		// Will display names at the end if user wants to see. 
+		//opening.displayPlayerNames(); 
 
 		Main m = new Main();
 		m.checkRoom(new IRoomInfo.Room1()); //begin user in room 1
