@@ -1,10 +1,11 @@
 package def;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// Create two locales
 		Locale us = new Locale("en", "US");
 		Locale france = new Locale("fr", "FR");

@@ -1,6 +1,10 @@
 package def;
 
 public class Ending {
+	
+	// Initialize the counter to see how many hints have been used.
+	public static int usedHintCount = 0;
+
 
     // Method to determine ending depending on the hints used.
     public static void EndGame() {
@@ -9,8 +13,7 @@ public class Ending {
         // Convert treemap to an array to determine if hints have been used or not.
         Boolean[] hintArray = Keys.hintCount.values().toArray(new Boolean[0]);
 
-        // Initialize the counter to see how many hints have been used.
-        int usedHintCount = 0;
+        
 
         // loop through hintArray to count the hints used.
         for (int i = 0; i < hintArray.length; i++) {

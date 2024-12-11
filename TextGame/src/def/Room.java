@@ -6,32 +6,58 @@ interface IRoomInfo {
 	public void Choices();
 	public void ChoiceMessage(int choice);
 	public void Outcome(int choice);
+	public Dialogue dialog = new Dialogue();
+	public Ending end = new Ending();
+
+	
 
 
 // variable names
-public String[] hints = {"Hint room 1", "Hint for room 2", "Hint for room 3", "Hint room 4"};
+public String[] hints = {dialog.r1_w1a, dialog.r2_2e1, dialog.r3_2a, dialog.r4_3a};
 IRoomInfo room1 = new Room1();
 IRoomInfo room2 = new Room2();
 IRoomInfo room3 = new Room3();
 IRoomInfo room4 = new Room4();
 IRoomInfo courtYard = new CourtYard();
+ 
+
 
 // room 1 room code
 public class Room1 implements IRoomInfo{
+	// bools
+	public boolean oneSelected = false;
+	public boolean fourSelected = false;
+	public boolean hasBook = false;
 	
 	// Message to play when the user enters the room
 	public void Message() {
-		System.out.println("Welcome Message for room 1");
+		System.out.println(dialog.opening);
+		System.out.println(dialog.title);
 		Choices();
 	}
 	
 	// Lists out options
 	public void Choices() {
-		System.out.println("1. Try and unlock door");
-		System.out.println("2. Option 2");
-		System.out.println("3. Option 3");
-		System.out.println("4. Hint Book");
-		System.out.println("5. Go Back to Court Yard");
+		System.out.println("1. " + dialog.r1_1);
+		System.out.println("2. " + dialog.r1_2);
+		System.out.println("3. " + dialog.r1_3);
+		if (oneSelected == true) {
+			System.out.println("4. " + dialog.r1_4);
+		}
+		if (fourSelected == true) {
+			if (hasBook) {
+				System.out.println("5. " + dialog.r1_w1);
+			}	
+			System.out.println("6. " + dialog.r1_w2);
+			System.out.println("7. " + dialog.r1_w3);
+			System.out.println("8. " + dialog.r1_w4);
+		}
+		System.out.println("9. " + dialog.r1_5);
+		if (Keys.Room1Key) {
+			System.out.println("10. " + dialog.r1_6);
+		}
+		
+		
 		// Gets the number the user picked
 		int answer = Main.GetUserInput();
 		ChoiceMessage(answer);
@@ -43,53 +69,77 @@ public class Room1 implements IRoomInfo{
 		
 		// User unlocks the Key
 		if(choice == 1) {
-			System.out.println("Congrates here is the key!");
+			System.out.println(dialog.r1_1a);
 			Outcome(1);
 		}
 		// User selects dialogue filler choice 2
 		else if (choice == 2) {
-			System.out.println("ChoiceMessage option 2");
+			System.out.println(dialog.r1_2a);
 			Outcome(2);
 		}
 		// User selects dialogue filler choice 3
 		else if (choice == 3) {
-			System.out.println("ChoiceMessage option 3");
+			System.out.println(dialog.r1_3a);
 			Outcome(3);
 		}
 		// use hint
 		else if (choice == 4) {
-			System.out.println("here is the hint book!");
+			System.out.println(dialog.r1_4a);
 			Outcome(4);
 		}
 		else if (choice == 5) {
-			System.out.println("Going back to courtyard");
+			System.out.println(hints[0]);
+			Outcome(5);
+		}
+		else if (choice == 8) {
+			System.out.println(dialog.r1_w4a);
+			Outcome(8);
+		}
+		else if (choice == 9) {
+			if (Keys.Room1Key) {
+				System.out.println(dialog.r1_5a);
+			}
+			else {
+				System.out.println(dialog.r1_5b);
+			}
+		}
+		else if (choice == 10) {
+			System.out.println(dialog.r1_6a);
 			courtYard.Message();
 		}
 	}
 	// Message after the outcome
 	public void Outcome(int choice) {
 		
-		// open chest
+		// player looks around
 		if (choice == 1) {
-			Keys.Room1Key = true;
+			oneSelected = true;
 			Choices();
 		}
-		// Filler
-		else if (choice == 2 || choice == 3) {
-			System.out.println("1. Nice");
-			int answer = Main.GetUserInput(1);
-			if(answer == 1) {
-				Choices();
-			}
+		// Player picks up the book
+		else if (choice == 2) {
+			hasBook = true;
 		}
-		// User checks for hint for that room
+		
+		// player gets the Reluctant Ending
+		else if (choice == 3) {
+			System.out.println(dialog.Ending5);
+			// this would trigger the EndGame method as well, right?
+			Ending.EndGame();
+			
+		}
+		
+		// Player checks the wardrobe
 		else if (choice == 4) {
-		System.out.println(hints[0]);
-			System.out.println("1. Nice");
-			int answer = Main.GetUserInput(1);
-			if(answer == 1) {
-				Choices();
-			}
+			fourSelected = true;
+		}
+		
+		else if (choice == 5) {
+			// TO-DO: Apply HintCount from Ending to this
+			Ending.usedHintCount++;
+		}
+		else if (choice == 8) {
+			Keys.Room1Key = true;
 		}
 	}
 }
@@ -129,7 +179,7 @@ public class Room2 implements IRoomInfo{
 			Outcome(2);
 		}
 		
-		// User selects dialogue filler choice 3
+		// 
 		else if (choice == 3) {
 			System.out.println("ChoiceMessage option 3");
 			Outcome(3);
