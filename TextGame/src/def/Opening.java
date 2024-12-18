@@ -52,7 +52,9 @@ public class Opening {
             }
         }
         
-        System.out.println(dialogue.opening); 
+        System.out.println(dialogue.opening);  
+        
+        Ending.hashmap.put("Player name", playerName); 
         
         playerNameDatabase(playerName); 
         
