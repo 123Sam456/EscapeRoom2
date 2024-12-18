@@ -1,6 +1,7 @@
 package def;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,6 @@ public class Opening {
         while(!validInput) {
             try {
                 
-                System.out.println(dialogue.title); 
                 System.out.println("Your name: ");
                 
                 // Get user input and trim any surrounding spaces.
@@ -52,9 +52,11 @@ public class Opening {
             }
         }
         
+        playerNameDatabase(playerName); 
+        
+        System.out.println(dialogue.title); 
         System.out.println(dialogue.opening); 
         
-        playerNameDatabase(playerName); 
         
     }
     
